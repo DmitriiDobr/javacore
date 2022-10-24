@@ -13,10 +13,15 @@ public class Calculator {
     BinaryOperator<Integer> plus = (x, y) -> x + y;
     BinaryOperator<Integer> minus = (x, y) -> x - y;
     BinaryOperator<Integer> multiply = (x, y) -> x * y;
-    BinaryOperator<Integer> divide = (x, y) -> x / y;
+    BinaryOperator<Integer> divide = (x, y) -> {
+        if (y == 0) {
+            return Integer.min(x, y);
+        } else {
+            return x / y;
+        }
+    };
     UnaryOperator<Integer> pow = x -> x * x;
     UnaryOperator<Integer> abs = x -> x > 0 ? x : x * -1;
-    UnaryOperator<Integer> zero = x -> x != 0 ? x : x + 1;
     Consumer<Integer> println = System.out::println;
 
 
