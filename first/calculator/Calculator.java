@@ -15,7 +15,7 @@ public class Calculator {
     BinaryOperator<Integer> multiply = (x, y) -> x * y;
     BinaryOperator<Integer> divide = (x, y) -> {
         if (y == 0) {
-            return Integer.min(x, y);
+            return Integer.MIN_VALUE;
         } else {
             return x / y;
         }
